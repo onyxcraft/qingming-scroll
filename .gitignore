@@ -1,0 +1,18 @@
+node_modules
+dist
+.DS_Store
+*.local
+.env
+.env.*
+.vscode
+.idea
+*.log
+
+# TypeScript composite build artifacts
+*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+vite.config.js.map
+
+# 防止 iCloud 同步 node_modules 时产生 .icloud 占位符
+**/.icloud
