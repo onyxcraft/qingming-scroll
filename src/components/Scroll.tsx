@@ -96,6 +96,15 @@ export default function Scroll({
     }
   }, [updateProgress, imageReady])
 
+  // 手卷传统「从右向左」展开:画面加载后定位到最右端(画卷起点·清明郊外),
+  // 让浏览顺序与叙事顺序一致(郊野→虹桥→城门→市井)。如想改回从左开始,删掉此 effect 即可。
+  useEffect(() => {
+    if (!imageReady) return
+    const el = containerRef.current
+    if (!el) return
+    el.scrollLeft = el.scrollWidth
+  }, [imageReady])
+
   useEffect(() => {
     if (selectedHotspotId === null) return
     const target = hotspots.find((h) => h.id === selectedHotspotId)
